@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-sm-12 col-lg-12">
             <div class="blog" infinite-scroll='tumblr.nextPage()' infinite-scroll-disabled='tumblr.busy' infinite-scroll-distance='0'>
+<!--            <div class="counter">총<span class="num">{{this.total_post}}</span> 개의 글이 있습니다.</div> -->
                 <div class="panel" ng-repeat='item in tumblr.items'>
                     <div class="panel-heading">
                       <h3><i class="fa fa-rss-square"></i><a href="{{item.post_url}}" target="_blank"> {{item.title}}</a></h3>

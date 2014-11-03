@@ -3,11 +3,11 @@
 /* *************************************** */  
         
 $(document).ready(function() {
-    $(".totop").hide();
-    
+    //$(".totop").hide();
     $(window).scroll(function(){
         toolbar();
-        totop();
+        //totop();
+        footerbottom();
     });
 
     // ripple
@@ -47,7 +47,7 @@ function toolbar(){
         $('#header h1').css({"fontSize": "2em", "paddingTop": "38px"})
     }
 }
-
+/*
 function totop(){
     if ($(this).scrollTop() > 300) {
         $('.totop').fadeIn();
@@ -60,4 +60,12 @@ function totop(){
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
     });
+}
+*/
+function footerbottom(){
+    if($(this).scrollTop() == 0){
+        $('#footer').stop().fadeIn();
+    }else{
+        $('#footer').stop().fadeOut();
+    }
 }

@@ -37,7 +37,7 @@ app.controller('headerCtrl',function($scope){
     };
 });
 
-app.controller('homeController', function($scope, $anchorScroll) {
+app.controller('homeController', function($scope) {
     $scope.pageClass = 'page-home';
     $scope.bgStyle.backgroundColor = "#eeeeee";
     $scope.bgStyle.color = "#9e9e9e";
@@ -50,19 +50,9 @@ app.controller('homeController', function($scope, $anchorScroll) {
     menuLayout();
 });
 
-app.controller('footerCtrl', ['$scope', '$location', '$anchorScroll',
-    function ($scope, $location, $anchorScroll) {
-      $scope.gotoTop = function() {
-        // set the location.hash to the id of
-        // the element you wish to scroll to.
-        $location.hash('top');
 
-        // call $anchorScroll()
-        $anchorScroll();
-      };
-}]);
 
-app.controller('aboutController', function($scope, $anchorScroll) {
+app.controller('aboutController', function($scope) {
     $scope.pageClass = 'page-sub';
     $scope.bgStyle.backgroundColor = "#00bcd4";
     $scope.bgStyle.color = "#fff";
@@ -71,7 +61,7 @@ app.controller('aboutController', function($scope, $anchorScroll) {
     $scope.header.title = "ABOUT ME";
 });
 
-app.controller('portfolioController', function($scope, $anchorScroll) {
+app.controller('portfolioController', function($scope) {
     $scope.pageClass = 'page-sub';
     $scope.bgStyle.backgroundColor = "#8bc34a";
     $scope.bgStyle.color = "#fff";
@@ -90,7 +80,7 @@ app.controller('portfolioController', function($scope, $anchorScroll) {
     $scope.portfolioList = portfolioList;
 });
 
-app.controller('blogController', function($scope, $anchorScroll, Tumblr) {
+app.controller('blogController', function($scope, Tumblr) {
     $scope.pageClass = 'page-sub';
     $scope.bgStyle.backgroundColor = "#ffc107";
     $scope.bgStyle.color = "#fff";
@@ -100,7 +90,7 @@ app.controller('blogController', function($scope, $anchorScroll, Tumblr) {
     $scope.tumblr = new Tumblr();
 });
 
-app.controller('timelineController', function($scope, $anchorScroll) {
+app.controller('timelineController', function($scope) {
     $scope.pageClass = 'page-sub';
     $scope.bgStyle.backgroundColor = "#ff9800";
     $scope.bgStyle.color = "#fff";
@@ -125,6 +115,7 @@ app.factory('Tumblr', function($http) {
     var url = 'http://api.tumblr.com/v2/blog/witinweb.tumblr.com/posts?tag=스키머&filter=html&api_key=5ukGgHecRViHgYYpq6T52JzpoRspK1lvij4vtPg50l7FMP2dbD&callback=JSON_CALLBACK';
     $http.jsonp(url).success(function(data) {
       var items = data.response.posts;
+      //$scope.total_post = items.length;
       for (this.num; this.num < this.limit+3; this.num++) {
         if(items.length > this.num){
             this.items.push(items[this.num]);    
