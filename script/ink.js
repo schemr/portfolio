@@ -1,8 +1,34 @@
+/**
+ * Created by Kupletsky Sergey on 16.09.14.
+ *
+ * Hierarchical timing
+ * Add specific delay for CSS3-transition to elements.
+ 
+
+(function($) {
+  var speed = 900;
+  var container =  $('.display-animation');  
+  container.each(function() {   
+    var elements = $(this).children();
+    elements.each(function() {      
+      var elementOffset = $(this).offset(); 
+      var offset = elementOffset.left*0.8 + elementOffset.top;
+      var delay = parseFloat(offset/speed).toFixed(2);
+      $(this)
+        .css("-webkit-transition-delay", delay+'s')
+        .css("-o-transition-delay", delay+'s')
+        .css("transition-delay", delay+'s')
+        .addClass('animated');
+    });
+  });
+
+})(jQuery);
+*/
 /*jQuery*/
 
 $(function(){
 	var ink, d, x, y;
-	$(".ripplelink").click(function(e){
+	$(".ripplelink").click(function(event){
         if($(this).find(".ink").length === 0){
             $(this).prepend("<span class='ink'></span>");
         }
@@ -15,56 +41,20 @@ $(function(){
             ink.css({height: d, width: d});
         }
          
-        x = e.pageX - $(this).offset().left - ink.width()/2;
-        y = e.pageY - $(this).offset().top - ink.height()/2;
+        x = event.pageX - $(this).offset().left - ink.width()/2;
+        y = event.pageY - $(this).offset().top - ink.height()/2;
          
         ink.css({top: y+'px', left: x+'px'}).addClass("animate");
     });
 
-    $(".btn").click(function(event){
-        console.log("A")
-        if($(this).find(".drop").length == 0) { $(this).prepend("<span class='drop'></span>"); }
+    $(".ripplebtn").click(function(event){
+        if($(this).find(".drop").length == 0) { $(this).prepend("<b class='drop'></b>"); }
         drop = $(this).find(".drop").removeClass("animate");
         x = event.pageX - drop.width()/2 - $(this).offset().left;
         y = event.pageY - drop.height()/2 - $(this).offset().top;
         drop.css({top: y+'px', left: x+'px'}).addClass("animate");
-    })
+        $(this).toggleClass("leftArrow"); // 로고 <- 전환 클래스 
+        //$(this).find("img").toggle("fast");
+    });
 });
-/*
-$(document).ready(function() {
-    var classes = '';
-    $('input[type=radio][name=button]').each(function() {
-        classes += this.value+' ';
-    });
-    $('input[type=radio][name=button]').change(function() {
-        $('header > .btn').removeClass(classes).addClass('btn '+this.value);
-    });
-    $('input[type=radio][name=size]').change(function() {
-        $('body').removeClass().addClass(this.value);
-    });
-    $('input[type=radio][name=color]').change(function() {
-        $('header').removeClass().addClass(this.value);
-    });
-    $('#next').click(function(event) {
-        event.preventDefault();
-        $('input:checked[type=radio][name=button]').parent().next().find('input').click();
-    })
-    $('#prev').click(function(event) {
-        event.preventDefault();
-        $('input:checked[type=radio][name=button]').parent().prev().find('input').click();
-    })
-    $('header > .btn').click(function(event) {
-        event.preventDefault();
-        var randomEl = Math.floor((Math.random() * $('input[type=radio][name=button]').length));
-        $('input:eq(' + randomEl + ')[type=radio][name=button]').click();
-    })
-    $(".btn").click(function(event){
-        if($(this).find("b.drop").length == 0) { $(this).prepend("<b class='drop'></b>"); }
-        drop = $(this).find("b.drop").removeClass("animate");
-        x = event.pageX - drop.width()/2 - $(this).offset().left;
-        y = event.pageY - drop.height()/2 - $(this).offset().top;
-        drop.css({top: y+'px', left: x+'px'}).addClass("animate");
-    })
 
-});
-*/

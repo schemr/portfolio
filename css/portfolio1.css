@@ -166,8 +166,7 @@ body {
 	float:left;
 	width:50%;
 	height:50%;
-	font-size: 1.4em;
-	line-height: 3em;
+	font-size: 1.6em;
 	font-weight: 600;
 	text-align:center;
 	color:#fff;
@@ -186,25 +185,37 @@ body {
 }
 .cardtitle{
 	height: 20%;
-	color: #FFF;
+	
 
 }
-.cyan{
-  background:#00bcd4;
+.cardcontent_bg1{
+  background:#ff8a80;
 }
-
-.lightgreen{
-  background:#8bc34a;
+.cardcontent_bg2{
+  background:#ffff8d;
 }
-
-.amber{
-  background:#ffc107;
+.cardcontent_bg3{
+  background:#84ffff;
 }
-
-.orange{
-  background:#ff9800;
+.cardcontent_bg4{
+  background:#b9f6ca;
 }
-
+.cardtitle_bg1{
+  background:#ff5252;
+  color: #FFF;
+}
+.cardtitle_bg2{
+  background:#ffeb3b;
+  color: #000;
+}
+.cardtitle_bg3{
+  background:#03A9F4;
+  color: #FFF;
+}
+.cardtitle_bg4{
+  background:#1de9b6;
+  color: #000;
+}
 
 /* Footer */
 
@@ -336,31 +347,6 @@ body {
 .ripplebtn.leftArrow > span > span.s3 { transform-origin: 0 0; width: 1.4em; transform: translate(0,1em) rotate(-45deg); }
 .ripplebtn.play > span { transform: translate(1em,0) scale(1.6,1); }
 .ripplebtn.play > span > span { transform: rotate(-45deg) translate(-1em, -1em) scale(1,1); }
-
-/* core style - don't delete 
-.display-animation > * {
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0);
-}
-.display-animation > .animated {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
-  -o-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
-  transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
-}
-.no-js .display-animation > * {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
-}
-*/
-
 /*
 html , body { width: 100%; height: 100%; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; font-size: 14px; background-color: #eeeeee; color: #949494; }
 * { box-sizing: border-box; }
@@ -435,5 +421,4 @@ header.amber .btn span span { background-color: #ffc107; }
 @keyframes drop2 {
   30% { opacity: 1; transform: scale(0); }
   100% { opacity: 0; transform: scale(2.5); }
-}
-*/
+}*/
