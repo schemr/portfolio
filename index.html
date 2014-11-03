@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-touch-fullscreen" content="yes">
@@ -19,52 +19,54 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!-- Font-awesome CSS -->
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="screen" />
 	<!-- Animation CSS 
 	<link rel="stylesheet" type="text/css" href="css/animation.css">-->
 	<!-- Portfolio Style CSS -->
 	<link rel="stylesheet" type="text/css" href="css/portfolio.css">
-
+	<!-- jQuery JavaScript -->
+	<script src="script/lib/jquery-1.11.1.min.js"></script>
+	<!-- AngularJS JavaScript -->
+	<script src="script/lib/angular.js"></script>
+    <script src="script/lib/angular-route.js"></script>
+    <script src="script/lib/angular-animate.js"></script>
+	<!-- Bootstrap JavaScript -->
+	<script src="script/lib/bootstrap.min.js"></script>
+	<!-- AngularJS App.js -->
+  	<script src="script/app.js"></script>
+  	<!-- gMap PLUGIN -->
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="script/lib/jquery.gmap.js"></script>
 </head>
-<body>
+<body ng-controller="headerCtrl">
 	<!--[if lt IE 7]>
       <p class="">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 <div id="wrapper">
-	<header id="header">
-		<div id="logo">
-			<a href="#">
-				<img src="images/schemr.jpg">
-			</a>
-		</div>
-		<h1>SCHEMR</h1><!--Front-end Developer SCHEMR {스키머} {이슬기}-->
-	</header><!-- header -->
+	<span class="totop"><a href="#"><i class="fa fa-angle-up"></i></a></span>
+	<div id="toolbar">
+		<header id="header" ng-style="bgStyle">
+			<div id="logo">
+				<a href="#home">
+					<img src="{{header.img}}" alt="{{header.imgAlt}}">
+				</a>
+			</div>
+			<h1>{{header.title}}</h1><!--Front-end Developer SCHEMR {스키머} {이슬기}-->
+		</header><!-- header -->
+	</div><!-- ToolBar -->
 
 	<!-- inject our views using ng-view -->
     <!-- each angular controller applies a different class here -->
-    <div class="page {{ pageClass }}" ng-view></div>
+    <section id="section">
+    	<div class="page {{ pageClass }}" ng-view></div>
 
-	<footer id="footer">
-		<p>&copy; 2014 SCHEMR All Rights Reserved.</p>
-<!-- 		<ul>
-			<li>tumblr</li>
-			<li>facebook</li>
-			<li>WitInWeb</li>
-		</ul> -->
-	</footer><!-- footer -->
+    </section>
+    <footer id="footer" ng-include="'footer.htm'">
+  
+</footer>
 </div>
-	<!-- jQuery JavaScript -->
-	<script src="script/jquery-1.11.1.min.js"></script>
-	<!-- AngularJS JavaScript -->
-	<script src="script/angular.js"></script>
-    <script src="script/angular-route.js"></script>
-    <script src="script/angular-animate.js"></script>
-	<!-- Bootstrap JavaScript -->
-	<script src="script/bootstrap.min.js"></script>
-	<script src="script/animations.js"></script>
-  	<script src="script/app.js"></script>
-  		<!-- Ink JavaScript -->
-	<script src="script/ink.js"></script>
 
+	<!-- js -->
+  	<script src="script/ink.js"></script>
 </body>
 </html>

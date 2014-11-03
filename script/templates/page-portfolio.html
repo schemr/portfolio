@@ -1,0 +1,357 @@
+<div class="container">
+    <div class="row">
+        <div class="panel" ng-repeat="portfolio in portfolioList">
+            <div class="panel-heading">
+                <h3 class=""><i class="fa fa-file-code-o"></i> {{$index+1}}. {{portfolio.name}}</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li class="portfolio_img"><img src="images/portfolio/{{portfolio.thumb}}" alt="{{portfolio.alt}}"></li>
+                <li><span class="portfolio_title">제작스팩 : </span>{{portfolio.spec}}</li>
+                <li><span class="portfolio_title">작업내용 : </span>{{portfolio.work}}</li>
+                <li><span class="portfolio_title">상세내용 : </span>{{portfolio.detail}}</li>
+                <li><span class="portfolio_title">참여율 : </span>{{portfolio.percent}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> Portfolio</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>  
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> Node.js 채팅</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>  
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 위트인웹</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 텐던시 리뉴얼</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>  
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 누비(NUBY) - 이벤트웹앱</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 누비(NUBY) - 모바일</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>    
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 누비(NUBY)</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>    
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 코카콜라 이벤트웹앱(PC/Mobile)</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 샤르망호텔</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div> 
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 넥슨네트웍스</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>     
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 테크로스 PT 웹앱</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>        
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 바이오더마 - ABCDERM 모바일</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>  
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 바이오더마 - ABCDERM</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 11.최경주재단(국문/영문)</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>  
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 10.한국보건의료연구원(NECA) 블로그</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>                                                            
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 9.바이오더마 - 포토더마블</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>이벤트 게임 모바일 웹앱개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>모바일웹 페이스북 이벤트 게임 콘텐츠 개발, 가로화면 전용으로 한화면에서 꽉찬 레이아웃으로 구성. 룰렛을 돌려 이동하는 마블게임.</li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동작업(마크업 / UX / 스크립트)</li>
+                </ul>
+            </div>
+        </div>      
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 8.바이오더마 - 포토덤</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML / CSS / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>사이트 및 이벤트 제작</li>
+                <li><span class="portfolio_title">상세내용 : </span>바이오더마 포토덤 브렌드 사이트 제작</li>
+                <li><span class="portfolio_title">참여율 : </span>프론트앤드 100%</li>
+                </ul>
+            </div>
+        </div>      
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 7.유니세프 앱 - 후원다이어리</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp / 안드로이드 / iOS</li>
+                <li><span class="portfolio_title">작업내용 : </span>모바일웹 다이어리 콘텐츠 개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>슬라이딩 동작과 Ajax로 후원다이어리 콘텐츠 </li>
+                <li><span class="portfolio_title">참여율 : </span>2인 공동 개발(마크업 / 스크립트 / UX)</li>
+                </ul>
+            </div>
+        </div>      
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 6.유니세프 하이브리드앱</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML5 / CSS3 / Javascript / jQuery / Asp / 안드로이드 / iOS</li>
+                <li><span class="portfolio_title">작업내용 : </span>웹단 퍼블리싱 / UX 개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>안드로이드와 iOS 하이브리드 앱에서 웹단 퍼블리싱 작업과 UX 개발</li>
+                <li><span class="portfolio_title">참여율 : </span>프론트앤드 100%</li>
+                </ul>
+            </div>
+        </div>      
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 5.CJ4DX</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li class="portfolio_img"><img src="images/portfolio/cj4dx.jpg" alt="CJ4DX"></li>
+                <li><span class="portfolio_title">제작스팩 : </span> HTML / CSS / Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>웹접근성 / 유지보수</li>
+                <li><span class="portfolio_title">상세내용 : </span>웹접근성 준수 및 콘텐츠 퍼블리싱, 유지보수</li>
+                <li><span class="portfolio_title">참여율 : </span>프론트앤드 100%</li>
+                </ul>
+            </div>
+        </div>      
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 4.칼트레이트</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li class="portfolio_img"><img src="images/portfolio/calt.jpg" alt="칼트레이트"></li>
+                <li><span class="portfolio_title">제작스팩 : </span> Javascript / jQuery / Asp</li>
+                <li><span class="portfolio_title">작업내용 : </span>유지보수</li>
+                <li><span class="portfolio_title">상세내용 : </span>기존 플래시로 처리된 메뉴/헤더/이미지 등 javascript를 이용해서 개발 적용</li>
+                <li><span class="portfolio_title">참여율 : </span>프론트앤드 100%</li>
+                </ul>
+            </div>
+        </div>      
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 3.이미지 퍼즐</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li></li>
+                <li><span class="portfolio_title">제작스팩 : </span>HTML5 / CSS3 / Javascript / jQuery / Bootstrap / Canvas</li>
+                <li><span class="portfolio_title">작업내용 : </span>기획 / 디자인 / 개발 / 모바일</li>
+                <li><span class="portfolio_title">상세내용 : </span>데스크탑 또는 모바일에서 원하는 이미지(사진)을 불러와서 퍼즐을 진행하는 간단한 게임</li>
+                <li><span class="portfolio_title">참여율 : </span>프론트앤드 100%</li>
+                </ul>
+            </div>
+        </div>      
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 2.(주)보성통신기술</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li class="portfolio_img"><img src="images/portfolio/bs.jpg" alt="보성통신기술"></li>
+                <li><span class="portfolio_title">제작스팩 : </span>xHTML1.0 / CSS / Javascript / jQuery / PHP(그누보드)</li>
+                <li><span class="portfolio_title">작업내용 : </span>기획 / 디자인 / 개발 / 웹표준</li>
+                <li><span class="portfolio_title">상세내용 : </span>회사소개/제품소개/게시판 웹사이트</li>
+                <li><span class="portfolio_title">참여율 : </span>100%</li>
+                </ul>
+            </div>
+        </div>      
+        <div class="panel">
+            <div class="panel-heading"> 
+                <h3 class=""><i class="fa fa-file-code-o"></i> 1.(주)블랙에너지</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li class="portfolio_img"><img src="images/portfolio/be.jpg" alt="블랙에너지"></li>
+                <li><span class="portfolio_title">제작스팩 : </span>HTML5 / CSS3 / Javascript / jQuery</li>
+                <li><span class="portfolio_title">작업내용 : </span>기획 / 디자인 / 개발</li>
+                <li><span class="portfolio_title">상세내용 : </span>스타트업 홈페이지로 회사소개/제품소개 웹사이트</li>
+                <li><span class="portfolio_title">참여율 : </span>100%</li>
+                </ul>
+            </div>
+        </div>      
+    </div>
+</div>
