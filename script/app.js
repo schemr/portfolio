@@ -1,4 +1,4 @@
-var app = angular.module('ngPortfolio', ['ngRoute','ngAnimate']);
+var app = angular.module('ngPortfolio', ['ngRoute','ngAnimate','infinite-scroll','ngSanitize']);
 
 app.config(function ($routeProvider) {
   $routeProvider
@@ -62,7 +62,7 @@ app.controller('footerCtrl', ['$scope', '$location', '$anchorScroll',
       };
 }]);
 
-app.controller('aboutController', function($scope) {
+app.controller('aboutController', function($scope, $anchorScroll) {
     $scope.pageClass = 'page-sub';
     $scope.bgStyle.backgroundColor = "#00bcd4";
     $scope.bgStyle.color = "#fff";
@@ -71,7 +71,7 @@ app.controller('aboutController', function($scope) {
     $scope.header.title = "ABOUT ME";
 });
 
-app.controller('portfolioController', function($scope) {
+app.controller('portfolioController', function($scope, $anchorScroll) {
     $scope.pageClass = 'page-sub';
     $scope.bgStyle.backgroundColor = "#8bc34a";
     $scope.bgStyle.color = "#fff";
@@ -90,20 +90,54 @@ app.controller('portfolioController', function($scope) {
     $scope.portfolioList = portfolioList;
 });
 
-app.controller('blogController', function($scope) {
+app.controller('blogController', function($scope, $anchorScroll, Tumblr) {
     $scope.pageClass = 'page-sub';
     $scope.bgStyle.backgroundColor = "#ffc107";
     $scope.bgStyle.color = "#fff";
     $scope.header.img = "images/left.png";
     $scope.header.imgAlt = "Go Back";
     $scope.header.title = "BLOG POST";
+    $scope.tumblr = new Tumblr();
 });
 
-app.controller('timelineController', function($scope) {
+app.controller('timelineController', function($scope, $anchorScroll) {
     $scope.pageClass = 'page-sub';
     $scope.bgStyle.backgroundColor = "#ff9800";
     $scope.bgStyle.color = "#fff";
     $scope.header.img = "images/left.png";
     $scope.header.imgAlt = "Go Back";
     $scope.header.title = "TIMELINE";
+});
+
+// Tumblr constructor function to encapsulate HTTP and pagination logic
+app.factory('Tumblr', function($http) {
+  var Tumblr = function() {
+    this.items = [];
+    this.busy = false;
+    this.after = '';
+    this.num = 0;
+    this.limit = 0;
+  };
+
+  Tumblr.prototype.nextPage = function() {
+    if (this.busy) return;
+    this.busy = true;
+    var url = 'http://api.tumblr.com/v2/blog/witinweb.tumblr.com/posts?tag=스키머&filter=html&api_key=5ukGgHecRViHgYYpq6T52JzpoRspK1lvij4vtPg50l7FMP2dbD&callback=JSON_CALLBACK';
+    $http.jsonp(url).success(function(data) {
+      var items = data.response.posts;
+      for (this.num; this.num < this.limit+3; this.num++) {
+        if(items.length > this.num){
+            this.items.push(items[this.num]);    
+        } else{
+            this.busy = true;
+            $('.loading').hide();
+            return Tumblr;
+        }
+      }
+        this.limit += 3;
+        this.busy = false;
+             
+    }.bind(this));
+  };
+  return Tumblr;
 });

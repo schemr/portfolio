@@ -1,38 +1,15 @@
-<script type="text/javascript">
-    var tags = "스키머";
-    var url = 'http://witinweb.tumblr.com';
-    //var num = 5;
-    //?num='+limit+' 가져올 텀블러 글 개수 
-    $.getJSON(url+'/api/read/json?tagged='+tags+'&filter=none&callback=?', function(data) {
-        $('.loading').fadeOut();
-        $('.num').text(data["posts-total"]);
-        $.each(data.posts, function(i,posts){
-            displayTextPost(posts);
-        });
-    });
-    function displayTextPost(posts){
-        if(posts == null) {
-            return;
-        }
-        $('.blog').append('<div class="panel"><div class="panel-heading"><h3><i class="fa fa-rss-square"></i> <a href='+posts['url']+' target="_blank">'+posts['regular-title']+'</a></h3></div><div class="panel-body">'+posts['regular-body']+'</div></div>');
-        
-    };
-
-</script>
-<div class="loading"><img src="images/loading.gif"></div>
 <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-      <div class="col-sm-12 col-lg-12">
-        <div class="counter">총<span class="num"></span> 개의 글이 있습니다.</div>
-        <div class="blog">
-          <!-- <div class="panel">
-            <div class="panel-heading">
-              <h3><i class="fa fa-map-marker"></i></h3>
+    <div class="row">
+        <div class="col-sm-12 col-lg-12">
+            <div class="blog" infinite-scroll='tumblr.nextPage()' infinite-scroll-disabled='tumblr.busy' infinite-scroll-distance='0'>
+                <div class="panel" ng-repeat='item in tumblr.items'>
+                    <div class="panel-heading">
+                      <h3><i class="fa fa-rss-square"></i><a href="{{item.post_url}}" target="_blank"> {{item.title}}</a></h3>
+                    </div>
+                    <div class="panel-body" ng-bind-html="item.body"></div>
+                </div>
+                <div class="loading" ng-show='tumblr.busy'><img src="images/loading.gif"></div>
             </div>
-            <div class="panel-body"></div>
-          </div> -->
         </div>
-      </div>
     </div>
 </div>

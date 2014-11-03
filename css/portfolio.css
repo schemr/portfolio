@@ -335,7 +335,7 @@ body {
 
     .loading {
         width: 100%;
-        height: 1000px;
+        height: 350px;
     }
     .loading img{
         width: 40%;
@@ -468,7 +468,6 @@ body {
     position: absolute;
     width: 100%; 
     background: #fff;
-    padding-bottom: 70px;
 }
 .page.ng-leave  { z-index:8888; }
 .page.ng-enter  { z-index:7777; }
