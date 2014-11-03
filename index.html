@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="ngPortfolio"> <![endif]-->
+<!--[if IE 7]>  <html class="no-js lt-ie9 lt-ie8" ng-app="ngPortfolio"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" ng-app="ngPortfolio"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="ngPortfolio"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,39 +13,36 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="format-detection" content="telephone=no">
 	<title>Front-end Developer {SCHEMR} {스키머} {이슬기}</title>
-
+	<!-- Google Web Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>	
+	<link href='http://fonts.googleapis.com/earlyaccess/nanumgothic.css' rel='stylesheet' type='text/css' />
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!-- Font-awesome CSS -->
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="screen" />
+	<!-- Animation CSS 
+	<link rel="stylesheet" type="text/css" href="css/animation.css">-->
 	<!-- Portfolio Style CSS -->
-	<link rel="stylesheet" href="css/portfolio.css">
-	<!-- Google Web Fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>	
-	<link href='http://fonts.googleapis.com/earlyaccess/nanumgothic.css' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="css/portfolio.css">
+
 </head>
 <body>
+	<!--[if lt IE 7]>
+      <p class="">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 <div id="wrapper">
 	<header id="header">
 		<div id="logo">
-			<a href="#" class="ripplebtn">
+			<a href="#">
 				<img src="images/schemr.jpg">
-				<span>
-			    	<span class="s1"></span>
-			    	<span class="s2"></span>
-			    	<span class="s3"></span>
-			    </span>
 			</a>
 		</div>
 		<h1>SCHEMR</h1><!--Front-end Developer SCHEMR {스키머} {이슬기}-->
 	</header><!-- header -->
 
-	<div id="cardsection">
-		<div class="ripplelink cyan">ABOUT ME</div>
-		<div class="ripplelink lightgreen">PORTFOLIO</div>
-		<div class="ripplelink amber">BLOG POST</div>
-		<div class="ripplelink orange">CONTACT ME</div>
-	</div><!-- cardsection -->
+	<!-- inject our views using ng-view -->
+    <!-- each angular controller applies a different class here -->
+    <div class="page {{ pageClass }}" ng-view></div>
 
 	<footer id="footer">
 		<p>&copy; 2014 SCHEMR All Rights Reserved.</p>
@@ -55,9 +55,15 @@
 </div>
 	<!-- jQuery JavaScript -->
 	<script src="script/jquery-1.11.1.min.js"></script>
+	<!-- AngularJS JavaScript -->
+	<script src="script/angular.js"></script>
+    <script src="script/angular-route.js"></script>
+    <script src="script/angular-animate.js"></script>
 	<!-- Bootstrap JavaScript -->
 	<script src="script/bootstrap.min.js"></script>
-	<!-- Ink JavaScript -->
+	<script src="script/animations.js"></script>
+  	<script src="script/app.js"></script>
+  		<!-- Ink JavaScript -->
 	<script src="script/ink.js"></script>
 
 </body>
