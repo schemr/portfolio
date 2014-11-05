@@ -20,7 +20,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'portfolioController',
         resolve:{
             portfolios : function(Portfolio){
-                return Portfolio.query().$promise;
+                return Portfolio.query(function(){
+                    $('.loading_portfolio').fadeOut("slow");
+                    $('.panel').fadeIn("slow");
+                });
             }
         }
     })

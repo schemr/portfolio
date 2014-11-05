@@ -1,23 +1,6 @@
 <div class="container">
     <div class="row">
-        <button style="margin-right: 10px;" type="button" class="btn btn-default navbar-btn" ng-click="newPortfolio()">새로운 북마크 추가
-</button>
-        
-        <div class="panel" ng-repeat="portfolio in portfolioList">
-            <div class="panel-heading">
-                <h3 class=""><i class="fa fa-file-code-o"></i> {{portfolio.porfolioName}}</h3>
-            </div>
-            <div class="panel-body">
-                <ul>
-                <li class="portfolio_img"><img ng-src="images/portfolio/{{portfolio.portfolioNumber}}.jpg"></li>
-                <li><span class="portfolio_title">제작스팩 : </span>{{portfolio.portfolioSpec}}</li>
-                <li><span class="portfolio_title">작업내용 : </span>{{portfolio.portfolioWork}}</li>
-                <li><span class="portfolio_title">상세내용 : </span>{{portfolio.portfolioDetail}}</li>
-                <li><span class="portfolio_title">참여율 : </span>{{portfolio.portfolioPercent}}</li>
-                </ul>
-            </div>
-        </div>
-
+        <button style="margin-right: 10px;" type="button" class="btn btn-default navbar-btn" ng-click="newPortfolio()">새로운 북마크 추가</button>
         <!-- 
         <div class="panel" ng-repeat="portfolio in portfolioList">
             <div class="panel-heading">
@@ -34,6 +17,22 @@
             </div>
         </div>
          -->
+        <div class="panel" ng-repeat="portfolio in portfolioList | orderBy:'portfolioName':reverse=true">
+            <div class="panel-heading">
+                <h3 class=""><i class="fa fa-file-code-o"></i> {{portfolio.portfolioName}}</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li class="portfolio_img"><img ng-src="images/portfolio/{{portfolio.portfolioImgName}}.jpg"></li>
+                <li><span class="portfolio_title">제작스팩 : </span>{{portfolio.portfolioSpec}}</li>
+                <li><span class="portfolio_title">작업내용 : </span>{{portfolio.portfolioWork}}</li>
+                <li><span class="portfolio_title">상세내용 : </span>{{portfolio.portfolioDetail}}</li>
+                <li><span class="portfolio_title">참여율 : </span>{{portfolio.portfolioPercent}}</li>
+                <!-- <li><span class="portfolio_title">특이사항 : </span>{{portfolio.portfolioDesc}}</li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="loading_portfolio"><img src="images/loading.gif"></div>
     </div>
 </div>
 <!--
@@ -300,78 +299,3 @@
                 <li><span class="portfolio_title">작업내용 : </span>웹단 퍼블리싱 / UX 개발</li>
                 <li><span class="portfolio_title">상세내용 : </span>안드로이드와 iOS 하이브리드 앱에서 웹단 퍼블리싱 작업과 UX 개발</li>
                 <li><span class="portfolio_title">참여율 : </span>프론트앤드 100%</li>
-                </ul>
-            </div>
-        </div>      
-        <div class="panel">
-            <div class="panel-heading"> 
-                <h3 class=""><i class="fa fa-file-code-o"></i> 5.CJ4DX</h3>
-            </div>
-            <div class="panel-body">
-                <ul>
-                <li class="portfolio_img"><img src="images/portfolio/cj4dx.jpg" alt="CJ4DX"></li>
-                <li><span class="portfolio_title">제작스팩 : </span> HTML / CSS / Javascript / jQuery / Asp</li>
-                <li><span class="portfolio_title">작업내용 : </span>웹접근성 / 유지보수</li>
-                <li><span class="portfolio_title">상세내용 : </span>웹접근성 준수 및 콘텐츠 퍼블리싱, 유지보수</li>
-                <li><span class="portfolio_title">참여율 : </span>프론트앤드 100%</li>
-                </ul>
-            </div>
-        </div>      
-        <div class="panel">
-            <div class="panel-heading"> 
-                <h3 class=""><i class="fa fa-file-code-o"></i> 4.칼트레이트</h3>
-            </div>
-            <div class="panel-body">
-                <ul>
-                <li class="portfolio_img"><img src="images/portfolio/calt.jpg" alt="칼트레이트"></li>
-                <li><span class="portfolio_title">제작스팩 : </span> Javascript / jQuery / Asp</li>
-                <li><span class="portfolio_title">작업내용 : </span>유지보수</li>
-                <li><span class="portfolio_title">상세내용 : </span>기존 플래시로 처리된 메뉴/헤더/이미지 등 javascript를 이용해서 개발 적용</li>
-                <li><span class="portfolio_title">참여율 : </span>프론트앤드 100%</li>
-                </ul>
-            </div>
-        </div>      
-        <div class="panel">
-            <div class="panel-heading"> 
-                <h3 class=""><i class="fa fa-file-code-o"></i> 3.이미지 퍼즐</h3>
-            </div>
-            <div class="panel-body">
-                <ul>
-                <li></li>
-                <li><span class="portfolio_title">제작스팩 : </span>HTML5 / CSS3 / Javascript / jQuery / Bootstrap / Canvas</li>
-                <li><span class="portfolio_title">작업내용 : </span>기획 / 디자인 / 개발 / 모바일</li>
-                <li><span class="portfolio_title">상세내용 : </span>데스크탑 또는 모바일에서 원하는 이미지(사진)을 불러와서 퍼즐을 진행하는 간단한 게임</li>
-                <li><span class="portfolio_title">참여율 : </span>프론트앤드 100%</li>
-                </ul>
-            </div>
-        </div>      
-        <div class="panel">
-            <div class="panel-heading"> 
-                <h3 class=""><i class="fa fa-file-code-o"></i> 2.(주)보성통신기술</h3>
-            </div>
-            <div class="panel-body">
-                <ul>
-                <li class="portfolio_img"><img src="images/portfolio/bs.jpg" alt="보성통신기술"></li>
-                <li><span class="portfolio_title">제작스팩 : </span>xHTML1.0 / CSS / Javascript / jQuery / PHP(그누보드)</li>
-                <li><span class="portfolio_title">작업내용 : </span>기획 / 디자인 / 개발 / 웹표준</li>
-                <li><span class="portfolio_title">상세내용 : </span>회사소개/제품소개/게시판 웹사이트</li>
-                <li><span class="portfolio_title">참여율 : </span>100%</li>
-                </ul>
-            </div>
-        </div>      
-        <div class="panel">
-            <div class="panel-heading"> 
-                <h3 class=""><i class="fa fa-file-code-o"></i> 1.(주)블랙에너지</h3>
-            </div>
-            <div class="panel-body">
-                <ul>
-                <li class="portfolio_img"><img src="images/portfolio/be.jpg" alt="블랙에너지"></li>
-                <li><span class="portfolio_title">제작스팩 : </span>HTML5 / CSS3 / Javascript / jQuery</li>
-                <li><span class="portfolio_title">작업내용 : </span>기획 / 디자인 / 개발</li>
-                <li><span class="portfolio_title">상세내용 : </span>스타트업 홈페이지로 회사소개/제품소개 웹사이트</li>
-                <li><span class="portfolio_title">참여율 : </span>100%</li>
-                </ul>
-            </div>
-        </div>      
-    </div>
-</div>

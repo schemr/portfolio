@@ -333,11 +333,11 @@ body {
         font-style: italic;
     }
 
-    .loading {
+    .loading,.loading_portfolio {
         width: 100%;
         height: 350px;
     }
-    .loading img{
+    .loading img, .loading_portfolio img{
         width: 40%;
         display: block;
         margin: 0 auto;

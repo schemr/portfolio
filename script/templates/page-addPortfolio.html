@@ -1,11 +1,16 @@
+<div class="container">
 <form role="form" name="portfolioAddForm">
  <div class="form-group">
-  <label for="portfolioName">포트폴리오 이름</label>
-  <input type="text" class="form-control" name="portfolioName" placeholder="북마크 이름" ng-model="portfolio.portfolioName" ng-required="true">
+  <label for="portfolioNumber">포트폴리오 번호</label>
+  <input type="text" class="form-control" name="portfolioNumber" placeholder="포트폴리오 번호" ng-model="portfolio.portfolioNumber" ng-required="true">
  </div>
  <div class="form-group">
-  <label for="portfolioNumber">포트폴리오 번호</label>
-  <input type="text" class="form-control" name="portfolioNumber" placeholder="북마크 주소" ng-model="portfolio.portfolioNumber" ng-required="true">
+  <label for="portfolioName">포트폴리오 이름</label>
+  <input type="text" class="form-control" name="portfolioName" placeholder="포트폴리오 이름" ng-model="portfolio.portfolioName" ng-required="true">
+ </div>
+ <div class="form-group">
+  <label for="portfolioImgName">포트폴리오 이미지 네임</label>
+  <input type="text" class="form-control" name="portfolioImgName" placeholder="포트폴리오 이미지 네임" ng-model="portfolio.portfolioImgName" ng-required="true">
  </div>
  <div class="form-group">
   <label for="exampleInputFile">포트폴리오 스팩</label>
@@ -32,10 +37,7 @@
   <textarea name="portfolioDesc" class="form-control" cols="30" rows="10" ng-model="portfolio.portfolioDesc"></textarea>
  </div>
 
-
-
-
-
-
 <button type="submit" class="btn btn-primary pull-right" ng-disabled="portfolioAddForm.$invalid" ng-click="save(portfolio)">저장</button>
 </form>
+
+</div>
