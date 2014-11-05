@@ -1,12 +1,31 @@
 <div class="container">
     <div class="row">
+        <button style="margin-right: 10px;" type="button" class="btn btn-default navbar-btn" ng-click="newPortfolio()">새로운 북마크 추가
+</button>
+        
+        <div class="panel" ng-repeat="portfolio in portfolioList">
+            <div class="panel-heading">
+                <h3 class=""><i class="fa fa-file-code-o"></i> {{portfolio.porfolioName}}</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                <li class="portfolio_img"><img ng-src="images/portfolio/{{portfolio.portfolioNumber}}.jpg"></li>
+                <li><span class="portfolio_title">제작스팩 : </span>{{portfolio.portfolioSpec}}</li>
+                <li><span class="portfolio_title">작업내용 : </span>{{portfolio.portfolioWork}}</li>
+                <li><span class="portfolio_title">상세내용 : </span>{{portfolio.portfolioDetail}}</li>
+                <li><span class="portfolio_title">참여율 : </span>{{portfolio.portfolioPercent}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 
         <div class="panel" ng-repeat="portfolio in portfolioList">
             <div class="panel-heading">
                 <h3 class=""><i class="fa fa-file-code-o"></i> {{$index+1}}. {{portfolio.name}}</h3>
             </div>
             <div class="panel-body">
                 <ul>
-                <li class="portfolio_img"><img src="images/portfolio/{{portfolio.thumb}}" alt="{{portfolio.alt}}"></li>
+                <li class="portfolio_img" ng-bind-html="portfolio.thumb"></li>
                 <li><span class="portfolio_title">제작스팩 : </span>{{portfolio.spec}}</li>
                 <li><span class="portfolio_title">작업내용 : </span>{{portfolio.work}}</li>
                 <li><span class="portfolio_title">상세내용 : </span>{{portfolio.detail}}</li>
@@ -14,6 +33,7 @@
                 </ul>
             </div>
         </div>
+         -->
     </div>
 </div>
 <!--
