@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <button style="margin-right: 10px;" type="button" class="btn btn-default navbar-btn" ng-click="newPortfolio()">새로운 북마크 추가</button>
+        <button style="margin-right: 10px;" type="button" class="btn btn-default navbar-btn" ng-click="newPortfolio()">새로운 포트폴리오 추가</button>
         <div class="panel" ng-repeat="portfolio in portfolioList | orderBy:'portfolioNumber':reverse=true">
             <div class="panel-heading">
                 <h3 ng-if="portfolio.portfolioUrl == null"><i class="fa fa-file-code-o"></i> {{portfolio.portfolioName}}</h3>
