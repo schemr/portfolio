@@ -1,4 +1,16 @@
-프론트 앤드 개발자 - 이슬기 (스키머)
+Front-end Developer - SCHEMR
 ====================================
-포트폴리오 사이트 
+[PORTFOLIO SITE](http://schemr.dothome.co.kr/portfolio/)
 -----------------
+#Description
+프론트엔드 개발자 이슬기(스키머)의 개인 포트폴리오 사이트로 싱글페이지 어플리케이션 형태로 제작.
+ABOUT ME / PORTFOLIO / BLOG POST / TIMELINE 
+
+#Spac
+HTML5 / CSS3 / Javascript / jQuery / AngularJS / Bootstrap
+
+#Version
+V0.1~V0.7 기본적인 구조와 스타일, $http jsonp 를 이용한 블로그 포스트 가져오기, MongoDB 를 이용한 포트폴리오 등록 및 호출 구현
+
+#Contact Me
+email : zesta@navar.com
