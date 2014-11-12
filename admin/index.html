@@ -3,32 +3,38 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>backbone js Portfolio Admin</title>
+	<title>SCHEMR Portfolio Admin :: backbone js</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<style>
+	 th[data-sort]{
+      cursor:pointer;
+    }
+    </style>
 </head>
 <body>
-	<div class="container">
-		<h1>Portfolio Manager</h1>
+	<div class="container-fluid">
+		<h1><a href="">SCHEMR Portfolio Manager</a></h1>
 		<hr />
 		<div class="page">
 		</div>
 	</div>
 
 	<script type="text/template" id="portfolio-list-template">
-    <table class="table striped">
+    <table class="table table-striped table-condensed" id="complexTable">
     	<a href="#/new" class="btn btn-primary">New</a>
+    	<a href="http://schemr.dothome.co.kr/portfolio/" class="btn btn-danger">Portfolio</a>
     	<hr />
 		<thead>
-		<tr>
-			<th>번호</th>
+		<tr class="info">
+			<th data-sort="string" data-sort-default="desc">No.</th>
 			<th>이름</th>
 			<th>URL</th>
-			<th>이미지이름</th>
+			<th>이미지</th>
 			<th>스팩</th>
 			<th>작업내용</th>
 			<th>상세내용</th>
-			<th>참여율</th>
+			<th>%</th>
 			<th>특이사항</th>
 			<th></th>
 		</tr>
@@ -45,7 +51,7 @@
 		    <td><%= portfolio.get('portfolioDetail') %></td>
 		    <td><%= portfolio.get('portfolioPercent') %></td>
 		    <td><%= portfolio.get('portfolioDesc') %></td>
-		    <td><a href="#/edit/<%= portfolio.get('_id').$oid %>" class="btn">Edit</a></td>
+		    <td><a href="#/edit/<%= portfolio.get('_id').$oid %>" class="btn btn-warning">Edit</a></td>
 		  </tr>
 		<% }); %>
 		</tbody>
@@ -55,29 +61,30 @@
 		<form class="edit-portfolio-form">
 			<legend><%= portfolio ? 'Update' : 'Create' %> portfolio</legend>
 			<label>번호</label>
-			<input name="portfolioNumber" type="text" value="<%= portfolio ? portfolio.get('portfolioNumber') : '' %>" />
+			<input name="portfolioNumber" class="form-control" type="text" value="<%= portfolio ? portfolio.get('portfolioNumber') : '' %>" />
 			<label>이름</label>
-			<input name="portfolioName" type="text" value="<%= portfolio ? portfolio.get('portfolioName') : '' %>"  />
+			<input name="portfolioName" class="form-control"  type="text" value="<%= portfolio ? portfolio.get('portfolioName') : '' %>"  />
 			<label>URL</label>
-			<input name="portfolioUrl" type="text" value="<%= portfolio ? portfolio.get('portfolioUrl') : '' %>" />
-			<label>이미지이름</label>
-			<input name="portfolioImgName" type="text" value="<%= portfolio ? portfolio.get('portfolioImgName') : '' %>"  />
+			<input name="portfolioUrl" class="form-control"  type="text" value="<%= portfolio ? portfolio.get('portfolioUrl') : '' %>" />
+			<label>이미지</label>
+			<input name="portfolioImgName" class="form-control"  type="text" value="<%= portfolio ? portfolio.get('portfolioImgName') : '' %>"  />
 			<label>스팩</label>
-			<input name="portfolioSpec" type="text" value="<%= portfolio ? portfolio.get('portfolioSpec') : '' %>"  />
+			<input name="portfolioSpec" class="form-control"  type="text" value="<%= portfolio ? portfolio.get('portfolioSpec') : '' %>"  />
 			<label>작업내용</label>
-			<input name="portfolioWork" type="text" value="<%= portfolio ? portfolio.get('portfolioWork') : '' %>"  />
+			<input name="portfolioWork" class="form-control"  type="text" value="<%= portfolio ? portfolio.get('portfolioWork') : '' %>"  />
 			<label>상세내용</label>
-			<input name="portfolioDetail" type="text" value="<%= portfolio ? portfolio.get('portfolioDetail') : '' %>"  />
+			<input name="portfolioDetail" class="form-control"  type="text" value="<%= portfolio ? portfolio.get('portfolioDetail') : '' %>"  />
 			<label>참여율</label>
-			<input name="portfolioPercent" type="text" value="<%= portfolio ? portfolio.get('portfolioPercent') : '' %>"  />
+			<input name="portfolioPercent" class="form-control"  type="text" value="<%= portfolio ? portfolio.get('portfolioPercent') : '' %>"  />
 			<label>특이사항</label>
-			<input name="portfolioDesc" type="text" value="<%= portfolio ? portfolio.get('portfolioDesc') : '' %>"  />			
+			<input name="portfolioDesc" class="form-control"  type="text" value="<%= portfolio ? portfolio.get('portfolioDesc') : '' %>"  />			
 			<hr />
-			<button type="submit" class="btn"><%= portfolio ? 'Update' : 'Create' %></button>
+			<button type="submit" class="btn btn-primary"><%= portfolio ? 'Update' : 'Create' %></button>
 			<% if(portfolio) { %>
 				<input type="hidden" name="id" value="<%= portfolio.id %>" />
 				<button type="button" class="btn btn-danger delete">Delete</button>
 			<% }; %>
+			<button type="button" class="btn cancel">Cancel</button>
 
 		</form>
 	</script>
@@ -86,8 +93,9 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
 	<script type="text/javascript">
+		var apiKey = prompt("Are you SCHEMR?");
 		$.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-    	  options.url = 'https://api.mongolab.com/api/1/databases/portfolio/collections'+options.url+'?apiKey=BraiD4mQkKDv8x5Tp3Sr-C8wFa7Zuf3J';
+    	  options.url = 'https://api.mongolab.com/api/1/databases/portfolio/collections'+options.url+'?apiKey='+apiKey;
 	    });
 
 	    $.fn.serializeObject = function() {
@@ -121,8 +129,14 @@
 				var portfolios = new Portfolios();
 				portfolios.fetch({
 					success: function (portfolios) {
+						//portfolios = _.sortBy(portfolios.models.portfolioNumber, function(obj) { return obj; })
 						var template = _.template($('#portfolio-list-template').html());
 						that.$el.html(template({portfolios: portfolios.models}));
+						// Sort PortfolioNumber
+						$(function(){
+						    var table = $("#complexTable").stupidtable();
+						    $(table).find("th").eq(0).click();  // Use the index of the th you want in place of 0
+						});
 					}
 				})
 			}
@@ -137,7 +151,6 @@
 					that.portfolio = new Portfolio({id: options.id});
 					that.portfolio.fetch({
 						success: function(portfolio){
-							console.log(portfolio);
 							var template = _.template($('#edit-portfolio-template').html());
 							that.$el.html(template({portfolio: portfolio}));	
 						}
@@ -150,7 +163,8 @@
 			},
 			events: {
 				'submit .edit-portfolio-form' : 'savePortfolio',
-				'click .delete': 'deletePortfolio'
+				'click .delete': 'deletePortfolio',
+				'click .cancel': 'cancelPortfolio'
 			},
 			savePortfolio: function(ev){
 				var portfolioDetails = $(ev.currentTarget).serializeObject();
@@ -169,6 +183,10 @@
 					}
 				})
 				return false;
+			},
+			cancelPortfolio: function(){
+				router.navigate('', {trigger: true});
+				return false;
 			}
 		});
 
@@ -185,11 +203,14 @@
 		var router = new Router();
 		router.on('route:home', function(){
 			portfolioList.render();
+			$("html,body").scrollTop(0);
 		});
 		router.on('route:editPortfolio', function(id){
 			editPortfolio.render({id:id});
+			$("html,body").scrollTop(0);
 		});
 		Backbone.history.start();
 	</script>
+	<script src="stupidtable.min.js"></script>
 </body>
 </html>

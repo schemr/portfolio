@@ -2,8 +2,8 @@
     <div class="row">
         <div class="panel" ng-repeat="portfolio in portfolioList | orderBy:'portfolioNumber':reverse=true">
             <div class="panel-heading">
-                <h3 ng-if="portfolio.portfolioUrl == null && portfolio.portfolioUrl == ''"><i class="fa fa-file-code-o"></i> {{portfolio.portfolioName}}</h3>
-                <h3 ng-if="portfolio.portfolioUrl != null"><i class="fa fa-file-code-o"></i> <a href="{{portfolio.portfolioUrl}}" target="_blank">{{portfolio.portfolioName}}</a></h3>
+                <h3 ng-if="portfolio.portfolioUrl == null || portfolio.portfolioUrl == ''"><i class="fa fa-file-code-o"></i> {{portfolio.portfolioNumber}}. {{portfolio.portfolioName}}</h3>
+                <h3 ng-if="portfolio.portfolioUrl != null && portfolio.portfolioUrl != ''"><i class="fa fa-file-code-o"></i> <a href="{{portfolio.portfolioUrl}}" target="_blank"> {{portfolio.portfolioNumber}}. {{portfolio.portfolioName}}</a></h3>
             </div>
             <div class="panel-body">
                 <ul>
