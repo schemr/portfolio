@@ -10,6 +10,8 @@ ABOUT ME / PORTFOLIO / BLOG POST / TIMELINE
 HTML5 / CSS3 / Javascript / jQuery / AngularJS / Bootstrap
 
 #Version
+V0.9 포트폴리오 관리자 페이지 제작 (Backbone.js 이용)
+V0.8 구글 머티리얼 디자인 ink Ripple 적용
 V0.1~V0.7 기본적인 구조와 스타일, $http jsonp 를 이용한 블로그 포스트 가져오기, MongoDB 를 이용한 포트폴리오 등록 및 호출 구현
 
 #Contact Me
