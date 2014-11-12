@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>backbone js Portfolio Admin</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Portfolio Manager</h1>
+		<hr />
+		<div class="page">
+		</div>
+	</div>
+
+	<script type="text/template" id="portfolio-list-template">
+    <table class="table striped">
+    	<a href="#/new" class="btn btn-primary">New</a>
+    	<hr />
+		<thead>
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>URL</th>
+			<th>이미지이름</th>
+			<th>스팩</th>
+			<th>작업내용</th>
+			<th>상세내용</th>
+			<th>참여율</th>
+			<th>특이사항</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		<% _.each(portfolios, function(portfolio) { %>
+		  <tr>
+		    <td><%= portfolio.get('portfolioNumber') %></td>
+		    <td><%= portfolio.get('portfolioName') %></td>
+		    <td><%= portfolio.get('portfolioUrl') %></td>
+		    <td><%= portfolio.get('portfolioImgName') %></td>
+		    <td><%= portfolio.get('portfolioSpec') %></td>
+		    <td><%= portfolio.get('portfolioWork') %></td>
+		    <td><%= portfolio.get('portfolioDetail') %></td>
+		    <td><%= portfolio.get('portfolioPercent') %></td>
+		    <td><%= portfolio.get('portfolioDesc') %></td>
+		    <td><a href="#/edit/<%= portfolio.get('_id').$oid %>" class="btn">Edit</a></td>
+		  </tr>
+		<% }); %>
+		</tbody>
+    </table>
+  	</script>
+	<script type="text/template" id="edit-portfolio-template">
+		<form class="edit-portfolio-form">
+			<legend><%= portfolio ? 'Update' : 'Create' %> portfolio</legend>
+			<label>번호</label>
+			<input name="portfolioNumber" type="text" value="<%= portfolio ? portfolio.get('portfolioNumber') : '' %>" />
+			<label>이름</label>
+			<input name="portfolioName" type="text" value="<%= portfolio ? portfolio.get('portfolioName') : '' %>"  />
+			<label>URL</label>
+			<input name="portfolioUrl" type="text" value="<%= portfolio ? portfolio.get('portfolioUrl') : '' %>" />
+			<label>이미지이름</label>
+			<input name="portfolioImgName" type="text" value="<%= portfolio ? portfolio.get('portfolioImgName') : '' %>"  />
+			<label>스팩</label>
+			<input name="portfolioSpec" type="text" value="<%= portfolio ? portfolio.get('portfolioSpec') : '' %>"  />
+			<label>작업내용</label>
+			<input name="portfolioWork" type="text" value="<%= portfolio ? portfolio.get('portfolioWork') : '' %>"  />
+			<label>상세내용</label>
+			<input name="portfolioDetail" type="text" value="<%= portfolio ? portfolio.get('portfolioDetail') : '' %>"  />
+			<label>참여율</label>
+			<input name="portfolioPercent" type="text" value="<%= portfolio ? portfolio.get('portfolioPercent') : '' %>"  />
+			<label>특이사항</label>
+			<input name="portfolioDesc" type="text" value="<%= portfolio ? portfolio.get('portfolioDesc') : '' %>"  />			
+			<hr />
+			<button type="submit" class="btn"><%= portfolio ? 'Update' : 'Create' %></button>
+			<% if(portfolio) { %>
+				<input type="hidden" name="id" value="<%= portfolio.id %>" />
+				<button type="button" class="btn btn-danger delete">Delete</button>
+			<% }; %>
+
+		</form>
+	</script>
+
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+	<script type="text/javascript">
+		$.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
+    	  options.url = 'https://api.mongolab.com/api/1/databases/portfolio/collections'+options.url+'?apiKey=BraiD4mQkKDv8x5Tp3Sr-C8wFa7Zuf3J';
+	    });
+
+	    $.fn.serializeObject = function() {
+			var o = {};
+			var a = this.serializeArray();
+			$.each(a, function() {
+			  if (o[this.name] !== undefined) {
+			      if (!o[this.name].push) {
+			          o[this.name] = [o[this.name]];
+			      }
+			      o[this.name].push(this.value || '');
+			  } else {
+			      o[this.name] = this.value || '';
+			  }
+			});
+			return o;
+		};
+
+		var Portfolios = Backbone.Collection.extend({
+      		url: '/portfolios'
+    	});
+
+    	var Portfolio = Backbone.Model.extend({
+      		urlRoot: '/portfolios'
+    	});
+
+		var PortfolioList = Backbone.View.extend({
+			el: '.page',
+			render: function () {
+				var that = this;
+				var portfolios = new Portfolios();
+				portfolios.fetch({
+					success: function (portfolios) {
+						var template = _.template($('#portfolio-list-template').html());
+						that.$el.html(template({portfolios: portfolios.models}));
+					}
+				})
+			}
+		});
+
+		var EditPortfolio = Backbone.View.extend({
+			el: '.page',
+			render: function(options){
+				var that = this;
+				if(options.id){
+					console.log(options.id);
+					that.portfolio = new Portfolio({id: options.id});
+					that.portfolio.fetch({
+						success: function(portfolio){
+							console.log(portfolio);
+							var template = _.template($('#edit-portfolio-template').html());
+							that.$el.html(template({portfolio: portfolio}));	
+						}
+					})
+				} else{
+					var template = _.template($('#edit-portfolio-template').html());
+					that.$el.html(template({portfolio : null}));	
+				}
+				
+			},
+			events: {
+				'submit .edit-portfolio-form' : 'savePortfolio',
+				'click .delete': 'deletePortfolio'
+			},
+			savePortfolio: function(ev){
+				var portfolioDetails = $(ev.currentTarget).serializeObject();
+				var portfolio = new Portfolio();
+				portfolio.save(portfolioDetails, {
+					success: function(portfolio){
+						router.navigate('', {trigger: true});
+					}
+				})
+				return false;			
+			},
+			deletePortfolio: function(ev){
+				this.portfolio.destroy({
+					success: function(){
+						router.navigate('', {trigger: true});
+					}
+				})
+				return false;
+			}
+		});
+
+		var Router = Backbone.Router.extend({
+			routes:{
+				'': 'home',
+				'new': 'editPortfolio',
+				'edit/:id': 'editPortfolio'
+			}
+		});
+
+		var portfolioList = new PortfolioList();
+		var editPortfolio = new EditPortfolio();
+		var router = new Router();
+		router.on('route:home', function(){
+			portfolioList.render();
+		});
+		router.on('route:editPortfolio', function(id){
+			editPortfolio.render({id:id});
+		});
+		Backbone.history.start();
+	</script>
+</body>
+</html>
