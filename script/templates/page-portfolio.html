@@ -12,7 +12,7 @@
                 <li><span class="portfolio_title">작업내용 : </span>{{portfolio.portfolioWork}}</li>
                 <li><span class="portfolio_title">상세내용 : </span>{{portfolio.portfolioDetail}}</li>
                 <li><span class="portfolio_title">참여율 : </span>{{portfolio.portfolioPercent}}</li>
-                <li ng-if="portfolio.portfolioDesc != null && portfolio.portfolioDesc != ''"><span class="portfolio_title">특이사항 : </span>{{portfolio.portfolioDesc}}</li>
+                <li ng-if="portfolio.portfolioDesc != null && portfolio.portfolioDesc != ''"><span class="portfolio_title">특이사항 : </span><span ng-bind-html="portfolio.portfolioDesc"></span></li>
                 </ul>
             </div>
         </div>
