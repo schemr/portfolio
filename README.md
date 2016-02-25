@@ -1,6 +1,6 @@
 Front-end Developer - SCHEMR
 ====================================
-[PORTFOLIO SITE](http://schemr.github.io/portfolio/)
+[Portfolio Site](http://schemr.github.io/portfolio/)
 -----------------
 #Description
 프론트엔드 개발자 이슬기(스키머)의 개인 포트폴리오 사이트로 싱글페이지 어플리케이션 형태로 제작.
@@ -10,7 +10,11 @@ ABOUT ME / PORTFOLIO / BLOG POST / TIMELINE
 #Spac
 HTML5 / CSS3 / Javascript / jQuery / AngularJS / Bootstrap
 
-#Version
+Desktop / Mobile (반응형)
+
+Chrome / Safari / firefox / ie9+ 
+
+#History
 V1.0 버그수정, 포트폴리오 추가
 
 V0.9 포트폴리오 관리자 페이지 제작 (Backbone.js 이용)
