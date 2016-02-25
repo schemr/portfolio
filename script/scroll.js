@@ -3,16 +3,14 @@
 /* *************************************** */  
         
 $(document).ready(function() {
-    //$(".totop").hide();
     $(window).scroll(function(){
         toolbar();
-        //totop();
         footerbottom();
     });
 });
 
 function toolbar(){
-    if ($(this).scrollTop() > 10){
+    if ($(this).scrollTop() > 20){
         $('#toolbar').css("height","50px");
         $('#logo').css({"width" : "32px", "height": "32px", "marginTop" : "58px"});
         $('#header h1').css({"fontSize": "1.5em", "paddingTop": "62px"})
@@ -22,21 +20,7 @@ function toolbar(){
         $('#header h1').css({"fontSize": "2em", "paddingTop": "38px"})
     }
 }
-/*
-function totop(){
-    if ($(this).scrollTop() > 300) {
-        $('.totop').fadeIn();
-    } else {
-        $('.totop').fadeOut();
-    }
 
-    $(".totop a").click(function(e) {
-        e.preventDefault();
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-        return false;
-    });
-}
-*/
 function footerbottom(){
     if($(this).scrollTop() == 0){
         $('#footer').stop().fadeIn();

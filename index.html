@@ -28,19 +28,19 @@
 	<script src="script/lib/jquery-1.11.1.min.js"></script>
 	<!-- AngularJS JavaScript -->
 	<script src="script/lib/angular.js"></script>
-    <script src="script/lib/angular-resource.js"></script>
-    <script src="script/lib/angular-route.js"></script>
-    <script src="script/lib/angular-animate.js"></script>
-    <script src="script/lib/ng-infinite-scroll.min.js"></script>
-    <script src="script/lib/angular-sanitize.min.js"></script>
+	<script src="script/lib/angular-resource.js"></script>
+	<script src="script/lib/angular-route.js"></script>
+	<script src="script/lib/angular-animate.js"></script>
+	<script src="script/lib/ng-infinite-scroll.min.js"></script>
+	<script src="script/lib/angular-sanitize.min.js"></script>
 	<!-- Bootstrap JavaScript -->
 	<script src="script/lib/bootstrap.min.js"></script>
 	<!-- AngularJS App.js -->
   	<script src="script/app.js"></script>
-  		<script src="script/controllers/pageControllers.js"></script>
-  		<script src="script/services/portfolioSvc.js"></script>
-  		<script src="script/services/blogFactory.js"></script>
-  		<script src="script/controllers/addPortfolio.js"></script>  		
+	<script src="script/controllers/pageControllers.js"></script>
+	<script src="script/services/portfolioSvc.js"></script>
+	<script src="script/services/blogFactory.js"></script>
+	<script src="script/controllers/addPortfolio.js"></script>  		
   	<!-- gMap PLUGIN -->
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript" src="script/lib/jquery.gmap.js"></script>
@@ -68,11 +68,12 @@
     	<div class="page {{ pageClass }}" ng-view></div>
 
     </section>
-    <footer id="footer" ng-include="'footer.htm'">
+    <footer id="footer" ng-include="'footer.html'">
 	</footer>
 </div>
 	<!-- js -->
   	<script src="script/scroll.js"></script>
+  	<!-- google analytics -->
   	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -81,7 +82,6 @@
 
 		ga('create', 'UA-56518054-1', 'auto');
 		ga('send', 'pageview');
-
 	</script>
 </body>
 </html>
