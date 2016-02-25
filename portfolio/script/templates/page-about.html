@@ -1,0 +1,116 @@
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-sm-12 col-lg-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3><i class="fa fa-user"></i> Profile</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                    <li><span class="about_title">이름 : </span>이슬기</li>
+                    <li><span class="about_title">웹명 : </span>스키머(SCHEMR)</li>
+                    <li><span class="about_title">성별 : </span>남</li>
+                    <li><span class="about_title">생년월일 : </span>84.09.23</li>
+                    <li><span class="about_title">연락처 : </span><a href="tel://010-2987-8917">&#48;&#49;&#48;-&#50;&#57;&#56;&#55;-&#56;&#57;&#49;&#55;</a></li>
+                    <li><span class="about_title">이메일 : </span><a href="mailto:schemryj@gmail.com">schemryj@gmail.com</a></li>
+                    <li><span class="about_title">한줄소개 : </span>웹의 매력에 반해서 끊임없이 공부하고 공유하며, 강인한 체력과 성실함으로 무장한 함께 있으면 즐거운 사람</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-12 col-lg-6">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3><i class="fa fa-wrench"></i> Skill</h3>
+                </div>
+                <div class="panel-body">
+                    <p>HTML5 / CSS3 / JavaScript</p>
+                    <p>Bootstrap / SASS / jQuery / Angular.js / node.JS / Wordpress / Polymer / React.js</p>
+                    <p>웹표준 / 웹접근성 / 반응형웹 / 모바일웹 / 하이브리드앱 / 웹앱</p>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3><i class="fa fa-paw"></i> Social / Activity</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="about_box">
+                        <p>
+                            <i class="fa fa-tumblr"></i>
+                            <a href="http://schemr.tumblr.com/" target="_blank"> Tumblr</a>
+                        </p>
+                        <p>
+                            <i class="fa fa-facebook"></i>
+                            <a href="https://www.facebook.com/schemr/" target="_blank"> Facebook</a>
+                        </p>
+                        <p>
+                            <img src="images/witinweb.jpg" alt="witinweb">
+                            <a href="http://witinweb.com/" target="_blank"> 위트인웹</a>
+                        </p>
+                        <p>
+                            <img src="images/wdn.png" alt="웹동네">
+                            <a href="http://www.webdongne.com/" target="_blank"> 웹동네</a>
+                        </p>
+                        <p>
+                            <img src="images/minton.jpg" alt="배드민턴 동호회">
+                            <a href="http://cafe.naver.com/mintonholic/" target="_blank"> 민턴홀릭</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3><i class="fa fa-map-marker"></i> Location</h3>
+                </div>
+                <div class="panel-body">
+                    <!-- gMap script container !Do not remove!! -->
+                    <div id="map"></div>   
+                    <!-- gMap script container !Do not remove!! --> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+
+
+<script type="text/javascript">  
+    $(document).ready(function(){
+        // location google map
+        $('#map').gMap({ address: '서울특별시 노원구',
+            panControl: true,
+            zoomControl: true,
+            zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.SMALL
+            },
+            mapTypeControl: true,
+            scaleControl: true,
+            streetViewControl: false,
+            overviewMapControl: true,
+            scrollwheel: true,
+            icon: {
+                image: "http://www.google.com/mapfiles/marker.png",
+                shadow: "http://www.google.com/mapfiles/shadow50.png",
+                iconsize: [20, 34],
+                shadowsize: [37, 34],
+                iconanchor: [9, 34],
+                shadowanchor: [19, 34]
+            },
+            zoom:12,
+                markers: [
+                { 'address' : '대한민국 서울특별시 노원구 공릉1동 604-11',
+                  'title'   : '사는곳'
+                },
+                { 'address' : '서울특별시 마포구 합정동 367-9',
+                  'title'   : '스터디'
+                }
+            ]
+        }); 
+    });
+</script>
