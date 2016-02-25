@@ -11,7 +11,7 @@ ABOUT ME / PORTFOLIO / BLOG POST / TIMELINE
 HTML5 / CSS3 / Javascript / jQuery / AngularJS / Bootstrap
 
 #Version
-V1.0 코드 리펙터링, 포트폴리오 추가
+V1.0 버그수정, 포트폴리오 추가
 
 V0.9 포트폴리오 관리자 페이지 제작 (Backbone.js 이용)
 
